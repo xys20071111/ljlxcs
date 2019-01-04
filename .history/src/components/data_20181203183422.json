@@ -1,0 +1,115 @@
+{
+  "menus": [
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "数据统计",
+      "iconCls": "equalizer",
+      "leaf": false,
+      "children": [
+        {
+          "path": "homeworkStat1",
+          "component": "homeworkStat",
+          "name": "常归统计",
+          "leaf": true
+        },
+        {
+          "path": "homeworkStat2",
+          "component": "homeworkStat",
+          "name": "作业统计",
+          "leaf": true
+        },
+        {
+          "path": "informStat",
+          "component": "informStat",
+          "name": "通知统计",
+          "leaf": true
+        },
+        {
+          "path": "spaceStat",
+          "component": "spaceStat",
+          "name": "班级空间统计",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "用户管理",
+      "iconCls": "accessibility",
+      "leaf": false,
+      "children": [
+        {
+          "path": "userManage",
+          "component": "UserManage",
+          "leaf": true,
+          "name": "查询用户"
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "业务管理",
+      "iconCls": "bubble_chart",
+      "leaf": false,
+      "children": [
+        {
+          "path": "classManage",
+          "component": "ClassManage",
+          "leaf": true,
+          "name": "班级管理"
+        },
+        {
+          "path": "msgManage",
+          "component": "MsgManage",
+          "leaf": true,
+          "name": "通知管理"
+        },
+        {
+          "path": "hwManage",
+          "component": "HwManage",
+          "leaf": true,
+          "name": "作业管理"
+        },
+        {
+          "path": "menuTwoone6",
+          "component": "Test1",
+          "leaf": true,
+          "name": "班级空间管理"
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "评论管理",
+      "iconCls": "comment",
+      "leaf": false,
+      "children": [
+        {
+          "path": "menuTwoone9",
+          "component": "HelloWorld",
+          "leaf": true,
+          "name": "查询评论"
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "推广员",
+      "iconCls": "face",
+      "leaf": false,
+      "children": [
+        {
+          "path": "menuTwoone10",
+          "component": "Nofound",
+          "leaf": true,
+          "name": "查询推广员"
+        }
+      ]
+    }
+  ]
+}

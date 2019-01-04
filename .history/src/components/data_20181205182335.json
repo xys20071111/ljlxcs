@@ -1,0 +1,142 @@
+{
+  "menus": [
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "数据统计",
+      "iconCls": "equalizer",
+      "leaf": true,
+      "children": [
+        {
+          "path": "commonStat",
+          "component": "commonStat",
+          "name": "常规统计",
+          "leaf": true
+        },
+        {
+          "path": "homeworkStat",
+          "component": "homeworkStat",
+          "name": "作业统计",
+          "leaf": true
+        },
+        {
+          "path": "informStat",
+          "component": "informStat",
+          "name": "通知统计",
+          "leaf": true
+        },
+        {
+          "path": "spaceStat",
+          "component": "spaceStat",
+          "name": "班级空间统计",
+          "leaf": true
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "用户管理",
+      "iconCls": "accessibility",
+      "leaf": false,
+      "children": [
+        {
+          "path": "userManage",
+          "component": "UserManage",
+          "leaf": true,
+          "name": "查询用户"
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "业务管理",
+      "iconCls": "bubble_chart",
+      "leaf": false,
+      "children": [
+        {
+          "path": "classManage",
+          "component": "ClassManage",
+          "leaf": true,
+          "name": "班级管理"
+        },
+        {
+          "path": "msgManage",
+          "component": "MsgManage",
+          "leaf": true,
+          "name": "通知管理"
+        },
+        {
+          "path": "hwManage",
+          "component": "HwManage",
+          "leaf": true,
+          "name": "作业管理"
+        },
+        {
+          "path": "menuTwoone6",
+          "component": "Test1",
+          "leaf": true,
+          "name": "班级空间管理"
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "评论管理",
+      "iconCls": "comment",
+      "leaf": false,
+      "children": [
+        {
+          "path": "menuTwoone9",
+          "component": "HelloWorld",
+          "leaf": true,
+          "name": "查询评论"
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "推广员",
+      "iconCls": "face",
+      "leaf": false,
+      "children": [
+        {
+          "path": "menuTwoone10",
+          "component": "Nofound",
+          "leaf": true,
+          "name": "查询推广员"
+        }
+      ]
+    },
+    {
+      "path": "/",
+      "component": "Home",
+      "name": "资产管理",
+      "iconCls": "whatshot",
+      "leaf": false,
+      "children": [
+        {
+          "path": "setIntegral",
+          "component": "setIntegral",
+          "leaf": true,
+          "name": "设置资产"
+        },
+        {
+          "path": "allIntegral",
+          "component": "allIntegral",
+          "leaf": true,
+          "name": "用户资产"
+        },
+        {
+          "path": "reconIntergral",
+          "component": "reconIntergral",
+          "leaf": true,
+          "name": "资产对账"
+        }
+      ]
+    }
+  ]
+}

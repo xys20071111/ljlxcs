@@ -1,0 +1,289 @@
+<template>
+<div>
+  <v-layout column wrap>
+    <v-flex>
+      <v-container fluid grid-list-xl>
+      <v-layout row wrap>
+        <v-flex><span class="grey--text">条数：</span>{{ totalDesserts }} 条</v-flex>
+      </v-layout>
+      </v-container>
+    </v-flex>
+    <v-flex>
+      <dataTable1 :desserts="desserts" :pagination.sync="pagination" :totalDesserts="totalDesserts" which="msgManage0" 
+        :loading="loading" @getclasslist="getmsglist" @clickList="clickListTableItem" :news="news" :setNew.sync="news">
+      </dataTable1>
+    </v-flex>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      right
+      floating
+      clipped
+      app
+      fixed
+      light
+      :width="1000"
+    >
+    <v-list class="pa-0">
+      <v-list-tile>
+        <v-icon @click.stop="drawer=!drawer">close</v-icon>
+      </v-list-tile>
+    </v-list>
+    <v-list class="pa-1">
+      <v-divider></v-divider>
+      <v-list-tile>
+        <v-list-tile-content>
+          <v-list-tile-title>m_id：{{items.m_id}}</v-list-tile-title>
+        </v-list-tile-content>
+        <v-spacer></v-spacer>
+        <v-icon v-if="items.status===0" color="green">gps_fixed</v-icon>
+        <v-icon v-else color="red">gps_off</v-icon>
+      </v-list-tile>
+      <v-divider></v-divider>
+      <v-list-tile avatar>
+        <v-list-tile-content>
+          <v-list-tile-title><h3>{{items.title}}</h3></v-list-tile-title>
+          <v-list-tile-sub-title>
+            <span>作者：{{items.owner}}</span>
+            <v-divider class="mx-3" inset vertical></v-divider>
+            <span>发布时间：{{items.pub_time}}</span>
+          </v-list-tile-sub-title>
+        </v-list-tile-content>
+      </v-list-tile>
+        
+    </v-list>
+    <v-list class="pt-0" dense>
+      <v-divider></v-divider>
+      <v-container fluid grid-list-md>
+          <v-layout column wrap>
+            <v-flex d-flex >
+              <v-card tile flat>
+                <v-list dense>
+                  {{items.content}}
+                </v-list>
+                <v-divider></v-divider>
+                
+                <v-list dense>
+                  <!-- {{items.attachment}} -->
+                  <v-layout>
+                    <v-flex>
+                      <v-container grid-list-sm fluid>
+                        <v-layout row wrap>
+                          <v-flex
+                            v-for="item in items.attachment"
+                            :key="item.uid"
+                            xs3 sm3 md2 xl2 lg2
+                            d-flex
+                          >
+                            <v-card flat tile class="d-flex">
+                              <v-img v-if="item.sort==='simg'||item.sort==='cimg'||item.sort==='vimg'"  @click="clickItemImg(item)"
+                                :src="item.url"
+                                :lazy-src="item.url"
+                                aspect-ratio="1"
+                                class="grey lighten-2"
+                              >
+                                <v-layout
+                                  slot="placeholder"
+                                  fill-height
+                                  align-center
+                                  justify-center
+                                  ma-0
+                                >
+                                  <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                                </v-layout>
+                              </v-img>
+
+                               <v-img v-if="item.sort==='video'||item.sort==='svideo'" @click="clickItemImg(item)"
+                                src="../../static/images/icon-video.png"
+                                lazy-src="../../static/images/icon-video.png"
+                                aspect-ratio="1"
+                                class=" lighten-2"
+                              >
+                                <v-layout
+                                  slot="placeholder"
+                                  fill-height
+                                  align-center
+                                  justify-center
+                                  ma-0
+                                >
+                                  <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                                </v-layout>
+                              </v-img>
+
+                              <v-img v-if="item.sort==='record'" @click="clickItemImg(item)"
+                                src="../../static/images/icon-record.png"
+                                lazy-src="../../static/images/icon-record.png"
+                                aspect-ratio="1"
+                                class=" lighten-2"
+                              >
+                                <v-layout
+                                  slot="placeholder"
+                                  fill-height
+                                  align-center
+                                  justify-center
+                                  ma-0
+                                >
+                                  <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                                </v-layout>
+                              </v-img>
+                            </v-card>
+                            
+                          </v-flex>
+                        </v-layout>
+                      </v-container>
+                    </v-flex>
+                  </v-layout>
+                  <!-- {{items.attachment}} -->
+                </v-list>
+              </v-card>
+            </v-flex>
+          </v-layout>
+      </v-container>
+    </v-list>
+    </v-navigation-drawer>
+
+    <v-dialog
+        v-model="dialog"
+        width="500"
+        :persistent="itemsImg.sort==='simg'||itemsImg.sort==='cimg'||itemsImg.sort==='vimg'? false : true"
+        scrollable
+      >
+        <v-card>
+          <v-card-title
+            class="headline grey lighten-2"
+            primary-title
+          >
+            预览
+          </v-card-title>
+  
+          <v-card-text>
+            <v-img v-if="itemsImg.sort==='simg'||itemsImg.sort==='cimg'||itemsImg.sort==='vimg'" :src="itemsImg.url" :lazy-src="itemsImg.url" class="grey lighten-2" :style="style" @click="clickItemImgRotate" >
+              <v-layout
+                slot="placeholder"
+                fill-height
+                align-center
+                justify-center
+                ma-0
+              >
+                <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+              </v-layout>
+            </v-img>
+
+            <video id="video1" v-if="itemsImg.sort==='video' || itemsImg.sort==='svideo' " :src="itemsImg.url" controls="controls" style="width:100%">
+              您的浏览器不支持 video 标签。
+            </video>
+
+            <audio id="video1" v-if="itemsImg.sort==='record'" :src="itemsImg.url" controls="controls">
+              您的浏览器不支持 audio 标签。
+            </audio>
+          </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="primary"
+              flat
+              @click="clickItemImgClose"
+            >
+              关闭
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+      
+  </v-layout>
+</div>
+</template>
+<script>
+import API from '../api/API.js'
+import dataTable1 from './actionComp/dataTable1'
+import {axios} from '../utils/handledata.js'
+const api = new API()
+export default {
+  name: 'MsgManage',
+  components: { dataTable1 },
+  data () {
+    return {
+      drawer: null,
+      totalDesserts: 0,
+      desserts: [],
+      loading: true,
+      pagination: {},
+      items: [],
+      search: '',
+      dropdown: '',
+      cIndex: 0,
+      logining: false,
+      dialog: false,
+      itemsImg: '',
+      style: '',
+      current: 0,
+      news: 'news'
+    }
+  },
+  methods: {
+    getNewData () {
+      this.getDataFromApi()
+        .then(data => {
+          this.desserts = data.items
+          this.totalDesserts = data.total
+        })
+    },
+    clickItemImgRotate () {
+      this.current = (this.current + 90) % 360
+      this.style = 'transform:rotate(' + this.current + 'deg)'
+    },
+    clickItemImgClose () {
+      this.dialog = !this.dialog
+      let myVideo = document.getElementById('video1')
+      myVideo && myVideo.pause()
+    },
+    clickItemImg (props) {
+      this.dialog = !this.dialog
+      this.style = 'transform:rotate(0deg)'
+      this.itemsImg = {
+        ...props,
+        url: props.url.replace(/compress_/g, '')
+      }
+    },
+    clickListTableItem (props) {
+      this.drawer = !this.drawer
+      this.items = props
+    },
+    //   getmsglist&data={num:1,
+    getmsglist (oldOrNo) {
+      console.log(oldOrNo)
+      this.loading = true
+      !oldOrNo && (this.news = 'news')
+      let dataObj = {'num': this.pagination.page, 'size': this.pagination.rowsPerPage === 1 ? 20 : this.pagination.rowsPerPage}
+      axios(this.HOSTCSM, 'getmsglist', dataObj, cb => {
+        this.logining = false
+        let msg = cb.data
+        if (msg.code === 0) {
+          let temp = msg.data.list
+          let sumcount = msg.data.sumcount
+          for (let val of temp) {
+            val.attachment = val.attachment ? JSON.parse(val.attachment) : []
+          }
+          this.desserts = temp
+          this.totalDesserts = sumcount
+        } else {
+          this.$emit('update:setVsnackbar', [true, msg.msg, 'error'])
+        }
+      })
+    }
+  },
+  watch: {
+    search () {
+      return this.search
+    }
+  },
+  mounted () {
+  },
+  activated () {
+    this.$route.params.news && this.getNewData()
+    this.$route.params.news = ''
+  }
+}
+</script>
