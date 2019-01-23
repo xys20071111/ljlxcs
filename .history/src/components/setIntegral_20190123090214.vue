@@ -15,7 +15,7 @@
       <textField label="金额" placeholder="请输入金额" which="amount" buttonHide="true" :setModel.sync="amount" ></textField>
       <textField label="备注信息" placeholder="请输入备注信息" which="remark" buttonHide="true" :setModel.sync="remark" number="true"></textField>
       <v-spacer></v-spacer>
-      <v-btn :style="{'margin-left':'20px'}" color="info" @click="search()">
+      <v-btn small color="info" @click="search()">
         设置
       </v-btn>
     </v-layout>

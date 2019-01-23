@@ -1,4 +1,4 @@
-let inner = false // 是否内测版
+let inner = true // 是否内测版
 let siteName = inner ? '内测版' : '正式版'
 export default {
   siteName: siteName,

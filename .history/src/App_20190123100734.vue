@@ -19,18 +19,22 @@ export default {
   // },
   data () {
     return {
-      fixed: false
+      fixed: false,
+      snackbar: [false, '', 'success']
     }
   },
   methods: {
     clickApp () {
       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
-        this.$router.replace({'name': 'login', query: 'news'})
-      }, 1800000)
+        console.log(123456)
+        this.$router.replace({ 'name': 'login', params: {'overtime': true} })
+        console.log(this.$router)
+      }, 5000)
     }
   },
   mounted () {
+    console.log(this.$children)
     window.onmousedown = () => {
       this.$route.path !== '/login' && this.clickApp()
     }

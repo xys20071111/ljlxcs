@@ -16,20 +16,20 @@
         <v-icon>close</v-icon>
       </v-btn>
     </v-snackbar>
-    <v-content>
-        <v-container fluid fill-height justify-center>
-          <v-layout align-center justify-center column reverse style="just-content:center;padding:15px;flex:0 0 auto;background:#fff">
-              <div v-if="!scCode" style="margin-top:10px;font-size:16px">请用微信小程序扫描以上二维码</div>
-              <div id="qrcode"></div>
-              <v-content v-show="scCode" class="sc">
-                  <v-layout align-center justify-center column reverse fill-height >
-                    二维码已失效，请点击刷新，重新生成
-                    <v-btn color="primary" large fab dark :loading="loading"  :disabled="loading" @click.native="loader = 'loading'" @click.native.prevent="userPowerQrcode"><v-icon>refresh</v-icon></v-btn>
-                  </v-layout>
-              </v-content>
-          </v-layout>
-      </v-container>
-    </v-content>
+      <v-content>
+          <v-container fluid fill-height justify-center>
+            <v-layout align-center justify-center column reverse style="just-content:center;padding:15px;flex:0 0 auto;background:#fff">
+                <div v-if="!scCode" style="margin-top:10px;font-size:16px">请用微信小程序扫描以上二维码</div>
+                <div id="qrcode"></div>
+                <v-content v-show="scCode" class="sc">
+                    <v-layout align-center justify-center column reverse fill-height >
+                      二维码已失效，请点击刷新，重新生成
+                      <v-btn color="primary" large fab dark :loading="loading"  :disabled="loading" @click.native="loader = 'loading'" @click.native.prevent="userPowerQrcode"><v-icon>refresh</v-icon></v-btn>
+                    </v-layout>
+                </v-content>
+            </v-layout>
+        </v-container>
+      </v-content>
   </div>
 </template>
 
@@ -59,7 +59,7 @@ export default {
     }
   },
   mounted () {
-    this.$route.query === 'news' && (this.snackbar = [true, '页面超时，请重新登录', 'success'])
+    console.log(this.$route.params)
     this.qrcode = new QRCode('qrcode', {
       width: 250, // 设置宽高
       height: 250

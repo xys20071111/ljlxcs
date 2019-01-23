@@ -177,7 +177,6 @@ export default {
     }
   },
   mounted () {
-    this.$parent.$parent.$parent.clickApp()
     this.breadcrumbs = this.$route.matched
     this.getaccount()
     let clickAll = window.sessionStorage.getItem('buttons')

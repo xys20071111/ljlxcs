@@ -59,7 +59,7 @@ export default {
     }
   },
   mounted () {
-    this.$route.query === 'news' && (this.snackbar = [true, '页面超时，请重新登录', 'success'])
+    this.$route.query && (this.snackbar = [true, '页面超时，请重新登录', 'success'])
     this.qrcode = new QRCode('qrcode', {
       width: 250, // 设置宽高
       height: 250
@@ -146,6 +146,9 @@ export default {
       this.login(appData)
       this.$router.addRoutes(routers)
       this.$router.push({ path: '/main' })
+    },
+    setSnaker: () => {
+
     }
   },
   watch: {

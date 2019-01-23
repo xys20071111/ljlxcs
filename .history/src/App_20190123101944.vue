@@ -19,15 +19,16 @@ export default {
   // },
   data () {
     return {
-      fixed: false
+      fixed: false,
+      snackbar: [false, '', 'success']
     }
   },
   methods: {
     clickApp () {
       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
-        this.$router.replace({'name': 'login', query: 'news'})
-      }, 1800000)
+        this.$router.replace({ 'name': 'login' })
+      }, 5000)
     }
   },
   mounted () {

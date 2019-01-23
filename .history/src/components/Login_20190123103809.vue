@@ -146,6 +146,9 @@ export default {
       this.login(appData)
       this.$router.addRoutes(routers)
       this.$router.push({ path: '/main' })
+    },
+    setSnaker: () => {
+
     }
   },
   watch: {

@@ -27,7 +27,7 @@ export default {
       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
         this.$router.replace({'name': 'login', query: 'news'})
-      }, 1800000)
+      }, 5000)
     }
   },
   mounted () {

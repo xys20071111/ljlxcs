@@ -177,7 +177,6 @@ export default {
     }
   },
   mounted () {
-    this.$parent.$parent.$parent.clickApp()
     this.breadcrumbs = this.$route.matched
     this.getaccount()
     let clickAll = window.sessionStorage.getItem('buttons')
@@ -218,7 +217,7 @@ export default {
             this.userinfo.avatar = formatAvatar(this.userinfo.avatar)
             localStorage.setItem('userinfo', encodeURIComponent(JSON.stringify(msg.data)))
             let moneyObj = this.nodes.find(value => { return value.name === '资产管理' })
-            msg.data.user_id !== 50621 && moneyObj.children.splice(0, 1)
+            // msg.data.user_id !== 50621 && moneyObj.children.splice(0, 1)
           } else {
             this.snackbar = [true, msg.msg, 'error']
           }

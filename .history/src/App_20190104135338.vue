@@ -25,26 +25,29 @@ export default {
   methods: {
     clickApp () {
       clearTimeout(this.timeout)
+      // 获取当前时间戳
+      // let nowTime = new Date().getTime()
+      // 有操作后的5s后触发
       this.timeout = setTimeout(() => {
-        this.$router.replace({'name': 'login', query: 'news'})
-      }, 1800000)
+        console.log('1111')
+      }, 5000)
     }
   },
   mounted () {
     window.onmousedown = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
     window.oncontextmenu = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
     window.onscroll = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
     window.onkeydown = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
     window.onresize = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
   }
 }

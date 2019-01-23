@@ -1,21 +1,5 @@
 <template>
   <div class="wrap" id="loginroom">
-    <v-snackbar
-      v-model="snackbar[0]"
-      :timeout="5000"
-      top
-      right
-      multi-line
-      :color="snackbar[2]"
-    >
-      {{snackbar[1]}}
-      <v-btn
-        flat
-        @click="snackbar.splice(0 , 1 , false)"
-      >
-        <v-icon>close</v-icon>
-      </v-btn>
-    </v-snackbar>
     <v-content>
         <v-container fluid fill-height justify-center>
           <v-layout align-center justify-center column reverse style="just-content:center;padding:15px;flex:0 0 auto;background:#fff">
@@ -54,12 +38,11 @@ export default {
     return {
       loader: null,
       loading: false,
-      scCode: false,
-      snackbar: []
+      scCode: false
     }
   },
   mounted () {
-    this.$route.query === 'news' && (this.snackbar = [true, '页面超时，请重新登录', 'success'])
+    console.log(this.$route)
     this.qrcode = new QRCode('qrcode', {
       width: 250, // 设置宽高
       height: 250
@@ -146,6 +129,9 @@ export default {
       this.login(appData)
       this.$router.addRoutes(routers)
       this.$router.push({ path: '/main' })
+    },
+    setSnaker: () => {
+
     }
   },
   watch: {

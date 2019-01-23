@@ -26,8 +26,9 @@ export default {
     clickApp () {
       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
-        this.$router.replace({'name': 'login', query: 'news'})
-      }, 1800000)
+        console.log(123456)
+        this.$router.replace({ 'path': '/login' })
+      }, 5000)
     }
   },
   mounted () {
@@ -46,6 +47,7 @@ export default {
     window.onresize = () => {
       this.$route.path !== '/login' && this.clickApp()
     }
+    this.$route.path !== '/login' && this.clickApp()
   }
 }
 </script>

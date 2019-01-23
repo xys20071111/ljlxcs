@@ -19,7 +19,8 @@ export default {
   // },
   data () {
     return {
-      fixed: false
+      fixed: false,
+      snackbar: [false, '', 'success']
     }
   },
   methods: {
@@ -27,7 +28,7 @@ export default {
       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
         this.$router.replace({'name': 'login', query: 'news'})
-      }, 1800000)
+      }, 5000)
     }
   },
   mounted () {

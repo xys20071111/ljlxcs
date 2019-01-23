@@ -26,25 +26,25 @@ export default {
     clickApp () {
       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
-        this.$router.replace({'name': 'login', query: 'news'})
-      }, 1800000)
+        this.$router.replace({ 'path': '/' })
+      }, 5000)
     }
   },
   mounted () {
     window.onmousedown = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
     window.oncontextmenu = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
     window.onscroll = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
     window.onkeydown = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
     window.onresize = () => {
-      this.$route.path !== '/login' && this.clickApp()
+      this.clickApp()
     }
   }
 }
