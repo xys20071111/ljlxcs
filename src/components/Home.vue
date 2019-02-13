@@ -193,7 +193,6 @@ export default {
     }
   },
   created () {
-    // setCookie('wsc1', 'C880A53B6380113AD13E3A6512E72659AE327017FgNRzeRORGan4g3tY8xY70m3AQGmN8luCgnNtjOGNZifems%2b7NMykRwBCiS9f2kHK%2f44M3s%3d;', '1')
     let isLoadNodes = sessionStorage.getItem('isLoadNodes')
     if (!isLoadNodes) {
       let data = JSON.parse(window.sessionStorage.getItem('user'))
