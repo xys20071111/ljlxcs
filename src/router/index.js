@@ -2,8 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { delCookieAll } from '@/utils/cookie'
 import MenuUtils from '@/utils/MenuUtils'
-// import HelloWorld from '@/components/HelloWorld'
-// import Test1 from '@/components/Test1'
 
 Vue.use(VueRouter)
 

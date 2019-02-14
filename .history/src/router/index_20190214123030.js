@@ -2,8 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { delCookieAll } from '@/utils/cookie'
 import MenuUtils from '@/utils/MenuUtils'
-// import HelloWorld from '@/components/HelloWorld'
-// import Test1 from '@/components/Test1'
 
 Vue.use(VueRouter)
 
@@ -24,6 +22,20 @@ const router = new VueRouter({
       component: resolve => require(['@/components/Nofound'], resolve)
     },
     {
+      path: '/csallIntegral',
+      name: 'csallIntegral',
+      leaf: true,
+      hidden: true,
+      component: resolve => require(['@/components/allIntegral'], resolve)
+    },
+    {
+      path: '/csreconIntergral',
+      name: 'csreconIntergral',
+      leaf: true,
+      hidden: true,
+      component: resolve => require(['@/components/reconIntergral'], resolve)
+    },
+    {
       path: '/',
       name: '主页',
       leaf: false,
@@ -39,37 +51,6 @@ const router = new VueRouter({
         }
       ]
     }
-    // {
-    //   path: '/home',
-    //   name: 'home',
-    //   leaf: false,
-    //   hidden: true,
-    //   component: resolve => require(['@/components/Home'], resolve),
-    //   children: [
-    //     {
-    //       path: '',
-    //       name: 'main',
-    //       leaf: true,
-    //       hidden: true,
-    //       alias: 'main',
-    //       component: HelloWorld
-    //     },
-    //     {
-    //       path: 'test1',
-    //       name: 'test1',
-    //       leaf: true,
-    //       hidden: true,
-    //       component: Test1
-    //     },
-    //     {
-    //       path: 'test2',
-    //       name: 'test2',
-    //       leaf: true,
-    //       hidden: true,
-    //       component: Test1
-    //     }
-    //   ]
-    // }
   ]
 })
 
@@ -84,22 +65,26 @@ if (data) {
 
 router.beforeEach((route, redirect, next) => {
   let data = JSON.parse(window.sessionStorage.getItem('user'))
-  // if (data && route.path === '/login') {
-  //   window.sessionStorage.removeItem('user')
-  //   window.sessionStorage.removeItem('isLoadNodes')
-  //   window.location.href = '/'
-  //   delCookieAll()
-  //   return false
-  // }
-  // if (!data && route.path !== '/login') {
-  //   next({ path: '/login' })
-  // } else {
-  //   if (route.path) {
-  //     next()
-  //   } else {
-  //     next({ path: '/nofound' })
-  //   }
-  // }
+  if (route.path === '/csallIntegral' || route.path === '/csreconIntergral') {
+    next()
+    return false
+  }
+  if (data && route.path === '/login') {
+    window.sessionStorage.removeItem('user')
+    window.sessionStorage.removeItem('isLoadNodes')
+    window.location.href = '/'
+    delCookieAll()
+    return false
+  }
+  if (!data && route.path !== '/login') {
+    next({ path: '/login' })
+  } else {
+    if (route.path) {
+      next()
+    } else {
+      next({ path: '/nofound' })
+    }
+  }
 })
 
 export default router
