@@ -1,11 +1,6 @@
 <template>
   <div>
     <v-layout class="layout" style="flex-wrap: wrap;align-items:center;margin: 10px 0;">
-      <v-flex>
-          <v-btn v-for="(button, index) in buttons" :key="button" :color="buttonIndex === index? 'success':'grey lighten-3'" @click="changeEle(index)">
-          {{button}}
-          </v-btn>
-      </v-flex>
       <v-menu min-width="120" offset-y>
         <v-btn slot="activator" :style="{width:'120px'}">
           <span :style="{marginRight:'10px'}">{{items[itemIndex]}}</span>
@@ -62,10 +57,16 @@
         drawer: false
       }
     },
+    props: {
+
+    },
+    watch: {
+
+    },
+    computed: {
+
+    },
     methods: {
-      getNewData () {
-        this.getNewList()
-      },
       clickListDropdown (item, index) {
         this.itemIndex = index
         this.getNewList()
@@ -86,21 +87,16 @@
           this.option = chartData ? handleLine(chartData, 'hw') : ''
         })
       },
-      changeEle (index) {
-        this.buttonIndex = index
-        this.getNewList()
-      },
       clickListTableItem (props, clickWhich) {
         this.drawer = !this.drawer
       }
 
     },
+    created () {
+
+    },
     mounted () {
       this.getNewList()
-    },
-    activated () {
-      this.$route.params.news && this.getNewData()
-      this.$route.params.news = ''
     }
   }
 </script>

@@ -62,6 +62,15 @@
         drawer: false
       }
     },
+    props: {
+
+    },
+    watch: {
+
+    },
+    computed: {
+
+    },
     methods: {
       getNewData () {
         this.getNewList()

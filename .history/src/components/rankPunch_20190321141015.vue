@@ -62,16 +62,20 @@
         drawer: false
       }
     },
+    props: {
+
+    },
+    watch: {
+
+    },
+    computed: {
+
+    },
     methods: {
-      getNewData () {
-        this.getNewList()
-      },
       clickListDropdown (item, index) {
         this.itemIndex = index
-        this.getNewList()
       },
       getNewList () {
-        console.log(this.itemIndex, this.buttonIndex)
         this.loading = true
         let dataObj = {begin: '2019-02-02', end: '2019-03-04'}
         axios(this.HOSTCSM, 'gethwtj', dataObj, cb => {
@@ -95,12 +99,11 @@
       }
 
     },
+    created () {
+
+    },
     mounted () {
       this.getNewList()
-    },
-    activated () {
-      this.$route.params.news && this.getNewData()
-      this.$route.params.news = ''
     }
   }
 </script>

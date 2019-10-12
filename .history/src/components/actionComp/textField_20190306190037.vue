@@ -3,11 +3,12 @@
     <v-text-field
       :label="label"
       :placeholder="placeholder"
-      :style="{flex:width ? 'auto' : '0 1 150px',margin:'10px 10px 10px 20px',width: width ? width : 'auto', padding: padd ? padd : ''}"
+      style="flex:0 1 150px;margin:10px 10px 10px 20px"
       clearable
       hide-details
       v-model="modelNumber"
       @keyup.enter="search()"
+      width="100"
     ></v-text-field>
     <v-btn flat icon color="#32b1fa" @click="search()" v-if="!buttonHide">
       <v-icon large>search</v-icon>
@@ -22,7 +23,7 @@
         modelNumber: ''
       }
     },
-    props: ['label', 'placeholder', 'which', 'buttonHide', 'number', 'width', 'padd'],
+    props: ['label', 'placeholder', 'which', 'buttonHide', 'number'],
     watch: {
       modelNumber () {
         this.$emit('update:setModel', this.modelNumber)

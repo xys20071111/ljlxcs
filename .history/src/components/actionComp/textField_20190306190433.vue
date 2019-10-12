@@ -3,7 +3,7 @@
     <v-text-field
       :label="label"
       :placeholder="placeholder"
-      :style="{flex:width ? 'auto' : '0 1 150px',margin:'10px 10px 10px 20px',width: width ? width : 'auto', padding: padd ? padd : ''}"
+      :style="{flex:'0 1 150px',margin:'10px 10px 10px 20px',width: number ? number : 'auto'}"
       clearable
       hide-details
       v-model="modelNumber"
@@ -22,7 +22,7 @@
         modelNumber: ''
       }
     },
-    props: ['label', 'placeholder', 'which', 'buttonHide', 'number', 'width', 'padd'],
+    props: ['label', 'placeholder', 'which', 'buttonHide', 'number'],
     watch: {
       modelNumber () {
         this.$emit('update:setModel', this.modelNumber)

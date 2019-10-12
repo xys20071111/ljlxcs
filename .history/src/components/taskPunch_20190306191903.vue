@@ -1,13 +1,14 @@
 <template>
   <div>
     <v-layout class="layout" style="flex-wrap: wrap;align-items:center;margin: 10px 0;">
-      <v-btn v-for="(button, index) in buttons" :key="button" :color="buttonIndex === index? 'success':'grey lighten-3'" @click="changeEle(index)">
-        {{button}}
-      </v-btn>
-      <v-spacer></v-spacer>
-      <textField ref="classId" label="按班级ID查询" placeholder="请输入班级ID" which="classId" @searchClass = "searchClass" :setModel.sync="classId" v-show="this.buttonIndex"> </textField>
-      <textField ref="teachId" label="按老师ID查询" placeholder="请输入老师ID" which="teacherId" @searchClass = "searchClass" :setModel.sync="teacherId" v-show="this.buttonIndex"> </textField>
-      <timeFrame @change="times = $event" class="timeBox"></timeFrame>
+      <v-layout style="align-items:center;flex:0 0 auto;fontSize:16px;marginLeft:10px">
+        按打卡任务名称查询:
+        <textField width="180px" ref="classId" padd="0" label="" placeholder="请输入打卡任务名称" which="classId" @searchClass = "searchClass" :setModel.sync="classId" v-show="this.buttonIndex"> </textField>
+       </v-layout>
+      <v-layout style="align-items:center;flex:0 0 auto;fontSize:16px;marginLeft:10px">
+        按打卡任务ID查询:
+        <textField width="180px" ref="teachId" padd="0" label="" placeholder="请输入打卡任务ID" which="teacherId" @searchClass = "searchClass" :setModel.sync="teacherId" v-show="this.buttonIndex"> </textField>
+      </v-layout>
     </v-layout>
     <v-progress-linear :active="loading" :indeterminate="loading" height="4"></v-progress-linear>
     <chart :option="option" id="chart"></chart>
@@ -29,7 +30,7 @@ export default {
       desserts: [],
       loading: true,
       buttons: ['通知统计数据', '发布通知阅读率'],
-      buttonIndex: 0,
+      buttonIndex: 1,
       times: [],
       option: {},
       classId: '',

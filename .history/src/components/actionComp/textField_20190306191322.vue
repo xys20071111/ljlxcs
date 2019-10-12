@@ -3,7 +3,7 @@
     <v-text-field
       :label="label"
       :placeholder="placeholder"
-      :style="{flex:width ? 'auto' : '0 1 150px',margin:'10px 10px 10px 20px',width: width ? width : 'auto', padding: padd ? padd : ''}"
+      :style="{flex:width ? 'auto' : '0 1 150px',margin:'10px 10px 10px 20px',width: width ? width : 'auto', padding: padding && width}"
       clearable
       hide-details
       v-model="modelNumber"

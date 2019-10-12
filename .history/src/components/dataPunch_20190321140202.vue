@@ -48,7 +48,7 @@ export default {
       this.getNewList()
     },
     getNewList (classOrNo) {
-      console.log(this.buttonIndex ? this.timess : this.times)
+      console.log(this.buttonIndex)
       this.loading = true
       let dataObj = {begin: this.times[0], end: this.times[1]}
       axios(this.HOSTCSM, 'gethwtj', dataObj, cb => {

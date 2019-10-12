@@ -62,6 +62,10 @@
         drawer: false
       }
     },
+    computed: {
+      console.log(123456)
+
+    },
     methods: {
       getNewData () {
         this.getNewList()

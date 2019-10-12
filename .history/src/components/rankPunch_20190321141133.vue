@@ -62,10 +62,16 @@
         drawer: false
       }
     },
+    props: {
+
+    },
+    watch: {
+
+    },
+    computed: {
+
+    },
     methods: {
-      getNewData () {
-        this.getNewList()
-      },
       clickListDropdown (item, index) {
         this.itemIndex = index
         this.getNewList()
@@ -95,12 +101,11 @@
       }
 
     },
+    created () {
+
+    },
     mounted () {
       this.getNewList()
-    },
-    activated () {
-      this.$route.params.news && this.getNewData()
-      this.$route.params.news = ''
     }
   }
 </script>
