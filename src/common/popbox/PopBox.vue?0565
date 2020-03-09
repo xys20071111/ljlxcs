@@ -1,0 +1,7 @@
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('el-dialog',{attrs:{"title":"提示","visible":_vm.visible,"width":_vm.width,"close-on-click-modal":false},on:{"update:visible":function($event){_vm.visible=$event}}},[_vm._t("default")],2)}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+export default esExports
+
+
+//////////////////

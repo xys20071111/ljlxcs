@@ -1,6 +1,8 @@
-let inner = false // 是否内测版
-let siteName = inner ? '内测版' : '正式版'
 export default {
-  siteName: siteName,
-  bgs: ['a.jpg', 'b.jpg', 'c.jpg', 'd.jpg', 'e.jpg', 'f.jpg', 'g.jpg', 'h.jpg', 'i.jpg', 'j.jpg', 'k.jpg']
+    local : 'http://localhost:8066',
+    siteName:'乐学管理',
+    deviceid:new Fingerprint().get(),
+    auth:'/api/auth',
+    access:'/api/access',
+    user:'/api/account',
 }

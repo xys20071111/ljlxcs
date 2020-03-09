@@ -1,0 +1,7 @@
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('ul',{staticClass:"favo-list"},_vm._l((_vm.list),function(item,idx){return _c('li',{key:idx},[_c('a',{staticClass:"favo-link",attrs:{"href":"javascript:;"},on:{"click":function($event){_vm.nodeClick(item)}}},[_c('span',{staticClass:"favo-name"},[_c('i',{staticClass:"fa",class:item.image?item.image:'fa-file-text-o'}),_vm._v(_vm._s(item.name))]),_vm._v(" "),_c('span',{staticClass:"favo-fullname"},[_vm._v(_vm._s(item.fullName))])])])}))}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+export default esExports
+
+
+//////////////////

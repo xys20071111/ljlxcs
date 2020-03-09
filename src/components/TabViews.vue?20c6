@@ -1,0 +1,7 @@
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"wrap"},[(_vm.tabs.length!==0)?_c('div',{staticClass:"content-wrap tab-parent",attrs:{"id":"tabwrap"}},[_c('el-tabs',{attrs:{"type":"border-card","closable":""},on:{"tab-remove":_vm.removeTab,"tab-click":_vm.tabClick},model:{value:(_vm.curTab),callback:function ($$v) {_vm.curTab=$$v},expression:"curTab"}},_vm._l((_vm.tabs),function(item,idx){return _c('el-tab-pane',{key:item.key,attrs:{"label":''+item.name,"name":item.id}},[_c('span',{staticClass:"tab-one",attrs:{"slot":"label"},slot:"label"},[_c('i',{staticClass:"tab-loading",class:{'tab-loading-show':item.showLoading}}),_c('i',{staticClass:"fa fa-refresh tab-refresh",attrs:{"title":"刷新页面"},on:{"click":function($event){_vm.refresh(item.id)}}}),_vm._v(_vm._s(item.name))]),_vm._v(" "),_c('iframe-page',{attrs:{"url":item.uri,"image":item.image,"name":item.name,"id":item.id}})],1)}))],1):_vm._e(),_vm._v(" "),(_vm.tabs.length===0)?_c('welcome'):_vm._e(),_vm._v(" "),_c('span',{staticStyle:{"display":"none"}},[_vm._v(_vm._s(_vm.tabName))])],1)}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+export default esExports
+
+
+//////////////////
