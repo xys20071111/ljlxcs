@@ -1,31 +1,29 @@
-function injectStyle (ssrContext) {
-  require("!!../node_modules/extract-text-webpack-plugin/dist/loader.js?{\"omit\":1,\"remove\":true}!vue-style-loader!css-loader?{\"sourceMap\":true}!../node_modules/vue-loader/lib/style-compiler/index?{\"vue\":true,\"id\":\"data-v-42ef990d\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/vue-loader/lib/selector?type=styles&index=0!./App.vue")
+<template>
+	<div id="app">
+		<router-view />
+	</div>
+</template>
+
+<script>
+
+export default {
+	name: 'App'
 }
-var normalizeComponent = require("!../node_modules/vue-loader/lib/component-normalizer")
-/* script */
-export * from "!!babel-loader!../node_modules/vue-loader/lib/selector?type=script&index=0!./App.vue"
-import __vue_script__ from "!!babel-loader!../node_modules/vue-loader/lib/selector?type=script&index=0!./App.vue"
-/* template */
-import __vue_template__ from "!!../node_modules/vue-loader/lib/template-compiler/index?{\"id\":\"data-v-42ef990d\",\"hasScoped\":false,\"transformToRequire\":{\"video\":[\"src\",\"poster\"],\"source\":\"src\",\"img\":\"src\",\"image\":\"xlink:href\"},\"buble\":{\"transforms\":{}}}!../node_modules/vue-loader/lib/selector?type=template&index=0!./App.vue"
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
+</script>
 
-export default Component.exports
+<style>
+html,body{height:100%;overflow:hidden}
+#app {
+	font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #2c3e50;
+	position: absolute;
+	left:0;top:0;right:0;bottom:0;
+}
+</style>
 
 
 
-//////////////////
+// WEBPACK FOOTER //
+// src/App.vue
